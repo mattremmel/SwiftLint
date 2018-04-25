@@ -13237,7 +13237,7 @@ Identifier | Enabled by default | Supports autocorrection | Kind
 --- | --- | --- | ---
 `switch_case_alignment` | Enabled | No | style
 
-Case statements should vertically align with the enclosing switch statement, or indented if configured otherwise.
+Case statements should vertically align with their enclosing switch statement, or indented if configured otherwise.
 
 ### Examples
 
