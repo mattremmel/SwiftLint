@@ -5,7 +5,7 @@
 //  Created by JP Simard on 12/11/16.
 //  Copyright © 2016 Realm. All rights reserved.
 //
-// Generated using Sourcery 0.11.0 — https://github.com/krzysztofzablocki/Sourcery
+// Generated using Sourcery 0.11.2 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
 @testable import SwiftLintFrameworkTests
@@ -536,6 +536,14 @@ extension SourceKitCrashTests {
     ]
 }
 
+extension SwitchCaseAlignmentRuleTests {
+    static var allTests: [(String, (SwitchCaseAlignmentRuleTests) -> () throws -> Void)] = [
+        ("testSwitchCaseAlignment", testSwitchCaseAlignment),
+        ("testSwitchCaseAlignmentWithoutIndentedCases", testSwitchCaseAlignmentWithoutIndentedCases),
+        ("testSwitchCaseAlignmentWithIndentedCases", testSwitchCaseAlignmentWithIndentedCases)
+    ]
+}
+
 extension TodoRuleTests {
     static var allTests: [(String, (TodoRuleTests) -> () throws -> Void)] = [
         ("testTodo", testTodo),
@@ -632,6 +640,7 @@ XCTMain([
     testCase(RuleTests.allTests),
     testCase(RulesTests.allTests),
     testCase(SourceKitCrashTests.allTests),
+    testCase(SwitchCaseAlignmentRuleTests.allTests),
     testCase(TodoRuleTests.allTests),
     testCase(TrailingCommaRuleTests.allTests),
     testCase(TypeNameRuleTests.allTests),

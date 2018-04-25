@@ -13292,9 +13292,9 @@ default:
 ```swift
 switch someBool {
     ↓case true:
-         print('red')
+        print("red")
     ↓case false:
-         print('blue')
+        print("blue")
 }
 ```
 
@@ -13303,8 +13303,8 @@ if aBool {
     switch someBool {
         ↓case true:
             print('red')
-    case false:
-        print('blue')
+        ↓case false:
+            print('blue')
     }
 }
 ```
@@ -13312,11 +13312,11 @@ if aBool {
 ```swift
 switch someInt {
     ↓case 0:
-    print('Zero')
-case 1:
-    print('One')
+        print('Zero')
+    ↓case 1:
+        print('One')
     ↓default:
-    print('Some other number')
+        print('Some other number')
 }
 ```
 
