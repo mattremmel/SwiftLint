@@ -71,6 +71,10 @@ extension String {
         return fromIndex..<toIndex
     }
 
+    internal var fullNSRange: NSRange {
+        return NSRange(location: 0, length: utf16.count)
+    }
+
     public func absolutePathStandardized() -> String {
         return bridge().absolutePathRepresentation().bridge().standardizingPath
     }
@@ -78,11 +82,11 @@ extension String {
     internal var isFile: Bool {
         var isDirectoryObjC: ObjCBool = false
         if FileManager.default.fileExists(atPath: self, isDirectory: &isDirectoryObjC) {
-            #if os(Linux) && (!swift(>=4.1) || (!swift(>=4.0) && swift(>=3.3)))
-                return !isDirectoryObjC
-            #else
-                return !isDirectoryObjC.boolValue
-            #endif
+#if os(Linux) && !swift(>=4.1)
+            return !isDirectoryObjC
+#else
+            return !isDirectoryObjC.boolValue
+#endif
         }
         return false
     }

@@ -1,7 +1,7 @@
 import Foundation
 import SourceKittenFramework
 
-public struct ImplicitReturnRule: ConfigurationProviderRule, CorrectableRule, OptInRule {
+public struct ImplicitReturnRule: ConfigurationProviderRule, CorrectableRule, OptInRule, AutomaticTestableRule {
     public var configuration = SeverityConfiguration(.warning)
 
     public init() {}
@@ -85,7 +85,7 @@ public struct ImplicitReturnRule: ConfigurationProviderRule, CorrectableRule, Op
                                                             length: range.length),
                 let outerKindString = file.structure.kinds(forByteOffset: byteRange.location).last?.kind,
                 let outerKind = SwiftExpressionKind(rawValue: outerKindString),
-                [.call, .argument].contains(outerKind) else {
+                [.call, .argument, .closure].contains(outerKind) else {
                     return nil
             }
 

@@ -22,6 +22,7 @@ public extension SwiftVersion {
     static let three = SwiftVersion(rawValue: "3.0.0")
     static let four = SwiftVersion(rawValue: "4.0.0")
     static let fourDotOne = SwiftVersion(rawValue: "4.1.0")
+    static let fourDotTwo = SwiftVersion(rawValue: "4.2.0")
 
     static let current: SwiftVersion = {
         // Allow forcing the Swift version, useful in cases where SourceKit isn't available
@@ -37,6 +38,8 @@ public extension SwiftVersion {
         let file = File(contents: """
             #if swift(>=4.2.0)
                 let version = "4.2.0"
+            #elseif swift(>=4.1.50)
+                let version = "4.1.50"
             #elseif swift(>=4.1.2)
                 let version = "4.1.2"
             #elseif swift(>=4.1.1)
